@@ -5,10 +5,6 @@ from .forms import FormularioRegistro
 
 import json
 
-
-
-
-
 # Create your views here.
 
 def index(request):
@@ -32,8 +28,6 @@ def registro(request):
         context = {'formulario':formulario}
         print("El GET contiene", context)
         return render(request, 'app_proyecto_medico/registro.html', context)
-
-    
 
 def login(request):
     if request.method == "GET":

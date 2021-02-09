@@ -9,90 +9,20 @@
     <!-- Loading Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
-        rel="stylesheet" type="text/css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="{% static 'app_proyecto_medico/css/style.css' %}" rel="stylesheet">
     <link href="{% static 'app_proyecto_medico/css/stylebarra.css' %}" rel="stylesheet">
 </head>
 
 <body>
-     <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#" id="medicalr">MR</a>
-
-        <!-- Navigation Bar Hamburger-->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navigation"
-          aria-expanded="false"
-          aria-controls="navigation" 
-          aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- End Navigation Bar Hamburger -->
-        <!-- Navigation Links -->
-        <div class="collapse navbar-collapse" id="navigation">
-          <ul class="navbar-nav mr-auto">
-             
-          </ul>
-          <!-- Boton login  modal-->
-          <div class="text-center">
-            <a href="{% url 'app_proyecto_medico:index' %}" class="btn btn-danger border-dark font-weight-bold text-white my-2 my-sm-0">
-              Salir
-            </a>
-          </div><!-- Boton login  modal-->
-          
-        <!-- Navigation Links -->
-      </nav>
-      <!-- End Navigation Bar -->
-
-    
-    <div class="row" id="body-row">
-        <!-- Sidebar -->
-        <div id="sidebar-container" class="sidebar-expanded d-none d-md-block col-2">
-            <div id="perfil" class="d-flex w-100 justify-content-start align-items-center">
-                <img class="img-fluid rounded" src="{% static '/app_proyecto_medico/img/profe luis.jpg' %}">
-            </div>
-            <ul class="list-group sticky-top sticky-offset">
-                <a href="{% url 'app_proyecto_medico:privada' %}" class="bg-dark list-group-item list-group-item-action">
-
-                    <img class="iconos" src="{% static '/app_proyecto_medico/img/ficha medica.png' %}">
-                    Perfil
-                </a>
-                <a href="{% url 'app_proyecto_medico:examenes' %}" class="bg-dark list-group-item list-group-item-action">
-
-                    <img class="iconos" src="{% static '/app_proyecto_medico/img/medicina.png' %}">
-                    examenes
-                </a>
-                <a href="{% url 'app_proyecto_medico:agendar' %}" class="bg-dark list-group-item list-group-item-action">
-                    
-                    <img class="iconos" src="{% static '/app_proyecto_medico/img/eventos.png' %}">
-                    Agendar
-                </a>
-                <a href="{% url 'app_proyecto_medico:graficos' %}" class="bg-dark list-group-item list-group-item-action">
-                    
-                    <img class="iconos" src="{% static '/app_proyecto_medico/img/estadisticas.png' %}">
-                    Estadisticas
-                </a>
-                
-            </ul>
-        </div>
-        <!-- sidebar-container END -->
+    {% block MAIN %}
         
-        {% block MAIN %}
-        <!-- MAIN -->
-                
-        <!-- Main Col END -->
-        {% endblock MAIN %}
+    {% endblock MAIN %}
 
-    </div>
-    <!-- body-row END -->
 
-    <footer class="footer fixed.bottom bg-dark text-center">
+    <footer class="footer fixed-bottom bg-dark text-center">
         <p class="text-muted">&copy; 2020 Awakelab.</p>
         <p class="text-muted">Grupo Full Stack Python</p>
     </footer>
