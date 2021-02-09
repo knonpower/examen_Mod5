@@ -1,0 +1,24 @@
+{
+    "formulario": [
+        {
+            "email": "jlg.pacheco@gmail.com",
+            "password": "1234567"
+        },
+        {
+            "email": "knonpower@gmail.com",
+            "password": "1234567"
+        },
+        {
+            "email": "jhon@lacumbia.cl",
+            "password": "1234567"
+        },
+        {
+            "email": "salsero@salsa.net",
+            "password": "1234567"
+        },
+        {
+            "email": "lapeno@peno.cl",
+            "password": "1234567"
+        }
+    ]
+}
