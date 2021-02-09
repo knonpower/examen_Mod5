@@ -32,6 +32,29 @@ def registro(request):
         context = {'formulario':formulario}
         print("El GET contiene", context)
         return render(request, 'app_proyecto_medico/registro.html', context)
+    
+    elif request.method == "POST":
+        print("El POST contiene: ", request.POST)
+
+        formulario_devuelto = FormularioRegistro(request.POST)
+        print("Este es el formulario devuelto: ", formulario_devuelto)
+
+        if formulario_devuelto.is_valid() == True:
+            datos_formulario = formulario_devuelto.cleaned_data
+            print("Los datos limpios del formulario son: ", datos_formulario)
+            filename = "/app_proyecto_medico/data/login.json"
+            with open(str(settings.BASE_DIR)+filename, 'r') as file:
+                data=json.load(file)
+                nuevo_ultimo_identificador = int(data['ultimo_identificador'])+1
+                data['ultimo_identificador'] = nuevo_ultimo_identificador
+                datos_formulario['identificador'] = nuevo_ultimo_identificador
+                data['formulario'].append(datos_formulario)
+            with open(str(settings.BASE_DIR)+filename, 'w') as file:
+                json.dump(data, file)
+            return redirect('app_proyecto_medico:login')
+        else:
+            context = {'formulario':formulario_devuelto}
+            return render(request, 'app_proyecto_medico/registro.html', context)
 
     
 
@@ -70,27 +93,6 @@ def login(request):
                         print("El email no existe")
             context ={'formulario':formulario_devuelto}
             return render(request, 'app_proyecto_medico/login.html', context)
-            
-            """  
-            for formulario in data['formulario']:
-                print("Este es el json:",formulario)
-                print("Este es el formulario:", datos_formulario)
-                email = formulario['email']
-                print(email)
-
-                if datos_formulario['email'] in formulario['email']:
-                    print("El email existe:",email)
-                    verdadero = True
-                if datos_formulario['email'] is not formulario['email']:
-                    print("El email no existe")
-                    verdadero = False 
-                    context ={'formulario':formulario_devuelto}
-                    return render(request, 'app_proyecto_medico/login.html', context)   
-                if formulario['email'] == datos_formulario['email'] and formulario['password'] == datos_formulario['password']:
-                    return redirect('app_proyecto_medico:privada')
-                else:
-                    return render(request, 'app_proyecto_medico/index.html')
-                """
         else:
             context ={'formulario':formulario_devuelto}
             return render(request, 'app_proyecto_medico/login.html', context)
