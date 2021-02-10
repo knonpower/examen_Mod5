@@ -21,11 +21,20 @@ def privada(request):
 def graficos(request):
     return render(request, 'app_proyecto_medico/graficos.html')
 
+def context_lista_examen():
+    filename= "/app_proyecto_medico/data/examen.json"
+    with open(str(settings.BASE_DIR)+filename, 'r') as file:
+        formulario=json.load(file)
+    context = {'lista_examen': formulario['formulario']}
+    return context
+
 def examenes(request):
     if request.method == "GET":
         formulario = FormularioExamen()
         context = {'formulario':formulario}
-        print("El GET contiene", context)
+        context.update(context_lista_examen())
+        print("El GET de examenes contiene", context)
+        
         return render(request, 'app_proyecto_medico/examenes.html', context)
     
     elif request.method == "POST":
@@ -50,14 +59,9 @@ def examenes(request):
             context = {'formulario':formulario_devuelto}
             return render(request, 'app_proyecto_medico/examenes.html', context)
 
-
 def lista_examen(request):
-    filename= "/app_proyecto_medico/data/examen.json"
-    with open(str(settings.BASE_DIR)+filename, 'r') as file:
-        formulario=json.load(file)
-    context = {'formulario':formulario}
-    print("Lista examenes",context)
-    return render(request, 'app_proyecto_medico/examenes.html', context)
+    context = context_lista_examen()
+    return render(request, 'app_proyecto_medico/examen.html', context)
 
 def agendar(request):
     return render(request, 'app_proyecto_medico/agendar.html')

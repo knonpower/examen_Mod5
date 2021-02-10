@@ -1,1 +1,19 @@
-{"ultimo_identificador": 2, "formulario": [{"nombre": "cote", "rut": 123456789, "email": "jlg.pacheco@gmail.com", "password": "1234567", "identificador": 1}, {"nombre": "shon valvoa", "rut": "162305190", "examen": "protata", "medico": "protatico", "identificador": 2}]}
+{
+    "ultimo_identificador": 2,
+    "formulario": [
+        {
+            "nombre": "cote",
+            "rut": "123456789",
+            "examen": "peorrilla",
+            "medico": "gilbert",
+            "identificador": 1
+        },
+        {
+            "nombre": "shon valvoa",
+            "rut": "162305190",
+            "examen": "prostata",
+            "medico": "prostatico",
+            "identificador": 2
+        }
+    ]
+}

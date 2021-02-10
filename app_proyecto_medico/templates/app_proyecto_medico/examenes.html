@@ -15,12 +15,12 @@
               <div class="body">
                 
                   <div class="row">
-                    <form action="" method="POST" novalidate class="col-md-6">
+                    <form action="" method="POST" novalidate class="col-md-3">
                       {% csrf_token %}
                       
                       <div class="modal-body">
                         <div class="form-group">
-                          <table>
+                          <table >
                             {{formulario.as_table}}
                           </table>
                           <div class="modal-footer border-top-0 d-flex justify-content-center">
@@ -31,7 +31,7 @@
                       </div> <!--modal body-->
                       
                     </form>
-                      <table class="col-md-6">
+                      <table class="col-md-9 table-bordered" >
                           <thead >
                             <tr>
                               <th>#</th>
@@ -41,15 +41,13 @@
                               <th>Nombre Medico Tratante</th>
                             </tr>
                           </thead>
-                          {% for examen in formulario %}
+                          {% for examen in lista_examen %}
                           <tr>
-                            
+                            <td>{{ examen.identificador }}</td>
                             <td>{{ examen.nombre }}</td>
                             <td>{{ examen.rut }}</td>
-                            <td>{{ examen.tipo }}</td>
+                            <td>{{ examen.examen }}</td>
                             <td>{{ examen.medico }}</td>
-                            
-                        
                           </tr>
                           {% endfor %}
                       </table>
@@ -65,7 +63,6 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                     
                     </div>
                   </div>
                 </div>
