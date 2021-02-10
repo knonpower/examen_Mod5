@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from .forms import FormularioLogin
 from .forms import FormularioRegistro
+from .forms import FormularioExamen
 
 import json
 
@@ -21,7 +22,42 @@ def graficos(request):
     return render(request, 'app_proyecto_medico/graficos.html')
 
 def examenes(request):
-    return render(request, 'app_proyecto_medico/examenes.html')
+    if request.method == "GET":
+        formulario = FormularioExamen()
+        context = {'formulario':formulario}
+        print("El GET contiene", context)
+        return render(request, 'app_proyecto_medico/examenes.html', context)
+    
+    elif request.method == "POST":
+        print("El POST contiene: ", request.POST)
+        formulario_devuelto = FormularioExamen(request.POST)
+        print("Este es el formulario devuelto: ", formulario_devuelto)
+        
+        if formulario_devuelto.is_valid() == True:
+            datos_formulario = formulario_devuelto.cleaned_data
+            print("Los datos limpios del formulario son: ", datos_formulario)
+            filename = "/app_proyecto_medico/data/examen.json"
+            with open(str(settings.BASE_DIR)+filename, 'r') as file:
+                data=json.load(file)
+                nuevo_ultimo_identificador = int(data['ultimo_identificador'])+1
+                data['ultimo_identificador'] = nuevo_ultimo_identificador
+                datos_formulario['identificador'] = nuevo_ultimo_identificador
+                data['formulario'].append(datos_formulario)
+            with open(str(settings.BASE_DIR)+filename, 'w') as file:
+                json.dump(data, file)
+            return redirect('app_proyecto_medico:examenes')
+        else:
+            context = {'formulario':formulario_devuelto}
+            return render(request, 'app_proyecto_medico/examenes.html', context)
+
+
+def lista_examen(request):
+    filename= "/app_proyecto_medico/data/examen.json"
+    with open(str(settings.BASE_DIR)+filename, 'r') as file:
+        formulario=json.load(file)
+    context = {'formulario':formulario}
+    print("Lista examenes",context)
+    return render(request, 'app_proyecto_medico/examenes.html', context)
 
 def agendar(request):
     return render(request, 'app_proyecto_medico/agendar.html')

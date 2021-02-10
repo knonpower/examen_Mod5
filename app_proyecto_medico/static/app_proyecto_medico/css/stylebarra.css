@@ -38,7 +38,14 @@ body {
     font-weight: 400;
 }
 
-.card .body {
+.card {
+    color: #424242;
+    font-weight: 400;
+    padding: 20px;
+    
+}
+
+.body {
     color: #424242;
     font-weight: 400;
     padding: 20px;
