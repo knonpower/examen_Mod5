@@ -1,1 +1,26 @@
-{"ultimo_identificador": 3, "formulario": [{"nombre": "cote", "rut": "123456789", "examen": "peorrilla", "medico": "gilbert", "identificador": 1}, {"nombre": "shon valvoa", "rut": "162305190", "examen": "prostata", "medico": "prostatico", "identificador": 2}, {"nombre": "jhonn", "rut": "12345678", "examen": "cocosfera", "medico": "maria", "identificador": 3}]}
+{
+    "ultimo_identificador": 3,
+    "formulario": [
+        {
+            "nombre": "cote",
+            "rut": "123456789",
+            "examen": "peorrilla",
+            "medico": "gilbert",
+            "identificador": 1
+        },
+        {
+            "nombre": "shon valvoa",
+            "rut": "162305190",
+            "examen": "prostata",
+            "medico": "prostatico",
+            "identificador": 2
+        },
+        {
+            "nombre": "jhonn",
+            "rut": "12345678",
+            "examen": "cocosfera",
+            "medico": "maria",
+            "identificador": 3
+        }
+    ]
+}
