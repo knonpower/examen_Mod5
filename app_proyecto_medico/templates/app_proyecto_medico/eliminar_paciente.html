@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block eliminar_paciente %}
+<div class="grid-privada">
+    <div class="contenido">
+        <form action="{% url 'app_proyecto_medico:eliminar_paciente' identificador=identificador %}" method="POST">
+            {% csrf_token %}
+            Está seguro de eliminar al paciente con Identificador = {{identificador}}?
+            <input type="submit" value="Sí">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

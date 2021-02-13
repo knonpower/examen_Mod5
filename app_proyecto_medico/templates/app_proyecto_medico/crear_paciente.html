@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block crear_paciente %}
+
+<h1>Pagina Crear Pacientes</h1>
+<form action="" method="POST" novalidate>
+    {% csrf_token %}
+    <table>
+        {{formulario.as_table}}
+    </table>
+    <input type="hidden" name="elemento" value="paciente">
+    <input type="submit" value="Crear">
+</form>
+
+<hr>
+
+<div class="container-fluid bg-dark" id="lista-pacientes">
+    <div class="row">
+        <h3>Listado de pacientes actuales</h3>
+    </div>
+    <div class="row">
+        {% for paciente in lista_paciente %}
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <h3 class="card-header">paciente N° {{formulario.identificador}}</h3>
+                <div class="card-body">
+                    <h4 class="card-title">{{paciente.nombre}}</h4>
+                    <p class="card-text">{{paciente.sexo}}</p>
+                    <p class="card-text">{{paciente.edad}}</p>
+                    <p class="card-text">{{paciente.fecha_nacimiento}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

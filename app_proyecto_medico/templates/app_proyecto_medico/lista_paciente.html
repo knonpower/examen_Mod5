@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block lista_paciente %}
+
+<div class="container-fluid bg-dark" id="lista-pacientes">
+    <div class="row">
+        <h3>Listado de pacientes Actuales</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p class="btn btn-light"><a href="{% url 'app_proyecto_medico:crear_paciente' %}">Crear Nuevo paciente</a></p>
+        </div>
+    </div>
+    <div class="row">
+        {% for paciente in lista_paciente %}
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <h3 class="card-header">paciente N° {{paciente.identificador}}</h3>
+                <div class="card-body">
+                    <h4 class="card-title">{{paciente.nombre}}</h4>
+                    <p class="card-text">{{paciente.sexo}}</p>
+                    <p class="card-text">{{paciente.edad}}</p>
+                    <p class="card-text">{{paciente.fecha_nacimiento}}</p>
+                    <a href="{% url 'app_proyecto_medico:eliminar_paciente' identificador=paciente.identificador %}" class="btn btn-dark">Borrar</a>
+                    <a href="" class="btn btn-dark">Editar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

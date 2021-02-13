@@ -1,43 +1,72 @@
 {% load static %}
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Awakelab Full Stack Python</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <!-- Loading Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="{% static 'app_proyecto_medico/css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'app_proyecto_medico/css/stylebarra.css' %}" rel="stylesheet">
+    <link href="{% static 'app_proyecto_medico/css/sidenav.css' %}" rel="stylesheet">
 </head>
 
+<tbody>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Proyecto-MED</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="/">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="{% url 'app_proyecto_medico:registro' %}">Registrate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="{% url 'app_proyecto_medico:login' %}">Acceder</a>
+                </li>
+                {% block crear_ver_lista %}
+                {% endblock %}
+            </ul>
+        </div>
+      </nav>
+</tbody>
+
 <body>
-    {% block MAIN %}
-        
-    {% endblock MAIN %}
 
+    {% block login %}{% endblock %}
+    {% block registro %}{% endblock %}
+    {% block index %}{% endblock %}
+    {% block privada %}{% endblock %}
+    {% block examenes %}{% endblock %}
+    {% block graficos %}{% endblock %}
+    {% block agendar %}{% endblock %}
+    {% block crear_paciente %}{% endblock %}
+    {% block lista_paciente %}{% endblock %}
+    {% block eliminar_paciente %}{% endblock %}
 
-    <footer class="footer fixed-bottom bg-dark text-center">
-        <p class="text-muted">&copy; 2020 Awakelab.</p>
-        <p class="text-muted">Grupo Full Stack Python</p>
-    </footer>
-
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-        </script>
-    <script src="{% static 'app_proyecto_medico/js/main.js' %}"></script>
 </body>
+
+<footer class="footer bg-dark text-center fixed-bottom">
+    <p class="text-muted">&copy; 2020 Awakelab.</p>
+    <p class="text-muted">Grupo Full Stack Python</p>
+</footer>
+
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 
 </html>

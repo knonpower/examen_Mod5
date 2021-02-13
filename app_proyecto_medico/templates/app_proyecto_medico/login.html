@@ -1,70 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
 
-{% block MAIN %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Navigation Bar -->
-                    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-                        <a class="navbar-brand" href="#" id="medicalr">MR</a>
+{% load static %} 
 
-                        <!-- Navigation Bar Hamburger-->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                            aria-expanded="false" aria-controls="navigation" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <!-- End Navigation Bar Hamburger -->
-                        <!-- Navigation Links -->
-                        <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mr-auto">
+{% block login %}
 
-                            </ul>
-                            <!-- Boton login  modal-->
-                            <div class="text-center">
-                                <a href="{% url 'app_proyecto_medico:index' %}"
-                                    class="btn btn-danger border-dark font-weight-bold text-white my-2 my-sm-0">
-                                    Regresar a Inicio
-                                </a>
-                            </div><!-- Boton login  modal-->
+        <h1>Acceso</h1>
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            <table>
+                {{formulario.as_table}}
+            </table>
+            <input type="hidden" name="elemento" value="formulario">
+            <input type="submit" value="Ingresar">
+            <a href="{% url 'app_proyecto_medico:registro' %}">Registrate</a>
 
-                            <!-- Navigation Links -->
-                    </nav>
-                    <!-- End Navigation Bar -->
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-8">
-                        <div class="form-group">
-                            <div class="jumbotron jumbotron-main">
-                                <h1>ACCESO USUARIOS REGISTRADOS</h1>
-                                <form action="" method="POST" novalidate>
-                                    {% csrf_token %}
-                                    <table>
-                                        {{formulario.as_table}}
-                                    </table>
-                                    <input type="hidden" name="elemento" value="formulario">
-                                    <input type="submit" value="Ingresar">
-                                    <a href="{% url 'app_proyecto_medico:registro' %}">Registro</a>
-                                </form>
-                            </div>
-                        </div>
-                </div>
-                <div class="col-md-4">
-                    <p>
-                    <h3>Aun no estas registrado?</h3> <a href="{% url 'app_proyecto_medico:registro' %}"
-                        class="btn btn-lg btn-success btn-block" type="button">Haz click aqui!</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock MAIN %}
+{% endblock %}
