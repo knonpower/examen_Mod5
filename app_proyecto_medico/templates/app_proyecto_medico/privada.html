@@ -10,25 +10,44 @@
 
     <div class="row">
         <div class="col-lg-4 col-md-12 col-sm-12">
+            
+            <form action="" method="GET" novalidate>
+                {% csrf_token %}
+                <table>
+                    <select name="id" id="id" size="1">
+                        <option> </option>
+                        {% for paciente in lista_paciente %}
+                            
+                            <option value="{{ paciente.identificador }}" >
+                                {{ paciente.nombre }} 
+                            </option>
+                        {% endfor %}
+                    </select>        
+                    
+                </table>
+                <input type="hidden" name="elemento" value='paciente'>
+                <input type="submit" value="Selecionar">
+            </form>
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                <input type="hidden" name="elemento" value="{{ paciente.identificador }}">
+                <input type="submit" value="Mostrar">
+            </form>
             <div class="card profile">
                 <img class="img-fluid" src="{% static 'app_proyecto_medico/img/TiCn5dVo_400x400.jpg' %}" alt="">
             </div>
+            
             <div class="card">
                 <div class="header">
                     <h2>Acerca del paciente</h2>
                 </div>
-                <div class="body">
-                    <strong>Nombre</strong>
-                    <p>Luis Jaraquemada</p>
-                    <strong>Occupation</strong>
-                    <p>Linux Lover</p>
-                    <strong>Email</strong>
-                    <p>norecuerdoelEmail@gmail.com</p>
-                    <strong>Telefono</strong>
-                    <p>+5691506045</p>
-                    <hr>
-                    <strong>Direccion</strong>
-                    <address>pasaje #1000,Santiago</address>
+                <div class="col-md-9 ">
+                    
+                    {% for clave, valor in perfil.items %}
+                        <strong>{{clave}}</strong> 
+                        <p> {{ valor }} </p>
+                    {% endfor %}
+                    
                 </div>
             </div>
         </div>

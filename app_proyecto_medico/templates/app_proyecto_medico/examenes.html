@@ -15,7 +15,7 @@
               <div class="body">
                 
                   <div class="row">
-                    <form action="" method="POST" novalidate class="col-md-3">
+                    <form action="" method="POST" novalidate class="col-md-4 table-bordered">
                       {% csrf_token %}
                       
                       <div class="modal-body">
@@ -31,7 +31,7 @@
                       </div> <!--modal body-->
                       
                     </form>
-                      <table class="col-md-9 table-bordered" >
+                      <table class="col-md-8 table-bordered" >
                           <thead >
                             <tr>
                               <th>#</th>
@@ -42,18 +42,27 @@
                             </tr>
                           </thead>
                           {% for examen in lista_examen %}
-                          <tr>
-                            <td>{{ examen.identificador }}</td>
+
+                            <tr>
+                            <td>{{ examen.identificador }}
+                              <a href="{% url 'app_proyecto_medico:eliminar_examen' identificador=examen.identificador %}" class="btn btn-dark">Borrar</a>
+                            </td>
                             <td>{{ examen.nombre }}</td>
                             <td>{{ examen.rut }}</td>
                             <td>{{ examen.examen }}</td>
                             <td>{{ examen.medico }}</td>
+                            
                           </tr>
+
                           {% endfor %}
+                          
+
                       </table>
                   </div>
               </div>
-          
+
+              
+
                 <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">

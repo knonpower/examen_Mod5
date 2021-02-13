@@ -11,5 +11,6 @@ urlpatterns = [
     path('agendar', views.agendar, name='agendar'),
     path('login', views.login, name='login'),
     path('registro', views.registro, name='registro'),
+    path('<identificador>/eliminar_examen', views.eliminar_examen, name='eliminar_examen'),
     
 ]

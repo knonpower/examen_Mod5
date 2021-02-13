@@ -4,6 +4,8 @@ from .forms import FormularioLogin
 from .forms import FormularioRegistro
 from .forms import FormularioExamen
 
+from django.utils.datastructures import MultiValueDictKeyError
+
 import json
 
 
@@ -16,7 +18,45 @@ def index(request):
     return render(request, 'app_proyecto_medico/index.html')
 
 def privada(request):
-    return render(request, 'app_proyecto_medico/privada.html')
+    if request.method == "GET":
+        print("El request GET: ", request.GET)
+        if 'id' in request.GET:
+            id = request.GET['id']
+            print("El id del GET es: ", id)
+        filename="/app_proyecto_medico/data/examen.json"
+        with open(str(settings.BASE_DIR)+filename, 'r') as file:
+            data=json.load(file)
+            #print("Esto es data", data)
+        for paciente in data['formulario']:
+            cliente = paciente['nombre'], paciente['identificador']
+            #print("el cliente tiene:",  cliente)
+        
+        context = {'lista_paciente': data['formulario']}
+        
+        print("El context contiene", context)
+        return render(request, 'app_proyecto_medico/privada.html', context)
+
+
+    elif request.method == "POST":
+        print("El request GET: ", request.GET)
+        if 'id' in request.GET:
+            id = request.GET['id']
+            print("El id en el GET es: ", id)
+
+        filename ='/app_proyecto_medico/data/examen.json'
+        with open(str(settings.BASE_DIR)+filename, 'r') as file:
+            data=json.load(file)
+        for paciente in data['formulario']:
+            if int(paciente['identificador']) == int(id):
+                print(paciente['nombre'], paciente['rut'])
+                perfil = {'perfil': paciente}
+                print("Estos son los datos del paciente: ",paciente)
+            
+        context = {'lista_paciente': data['formulario']}
+        context.update(perfil)   
+        print("El context con update tiene:",context)     
+        return render(request, 'app_proyecto_medico/privada.html', context)
+
 
 def graficos(request):
     return render(request, 'app_proyecto_medico/graficos.html')
@@ -27,6 +67,10 @@ def context_lista_examen():
         formulario=json.load(file)
     context = {'lista_examen': formulario['formulario']}
     return context
+    
+def lista_examen(request):
+    context = context_lista_examen()
+    return render(request, 'app_proyecto_medico/examenes.html', context)
 
 def examenes(request):
     if request.method == "GET":
@@ -59,9 +103,22 @@ def examenes(request):
             context = {'formulario':formulario_devuelto}
             return render(request, 'app_proyecto_medico/examenes.html', context)
 
-def lista_examen(request):
-    context = context_lista_examen()
-    return render(request, 'app_proyecto_medico/examen.html', context)
+def eliminar_examen(request, identificador):
+    if request.method == 'GET':
+        context ={'identificador':identificador}
+        return render(request, 'app_proyecto_medico/eliminar_examen.html', context)
+    
+    if request.method == 'POST':
+        filename ='/app_proyecto_medico/data/examen.json'
+        with open(str(settings.BASE_DIR)+filename, 'r') as file:
+            data=json.load(file)
+        for formulario in data['formulario']:
+            if int(formulario['identificador']) == int(identificador):
+                data['formulario'].remove(formulario)
+                break
+        with open(str(settings.BASE_DIR)+filename, 'w') as file:
+            json.dump(data, file)
+        return redirect('app_proyecto_medico:examenes')
 
 def agendar(request):
     return render(request, 'app_proyecto_medico/agendar.html')
@@ -95,8 +152,6 @@ def registro(request):
         else:
             context = {'formulario':formulario_devuelto}
             return render(request, 'app_proyecto_medico/registro.html', context)
-
-    
 
 def login(request):
     if request.method == "GET":
