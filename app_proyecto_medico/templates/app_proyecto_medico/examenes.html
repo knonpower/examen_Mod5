@@ -45,13 +45,13 @@
 
                             <tr>
                             <td>{{ examen.identificador }}
-                              <a href="{% url 'app_proyecto_medico:eliminar_examen' identificador=examen.identificador %}" class="btn btn-dark">Borrar</a>
+                              
                             </td>
                             <td>{{ examen.nombre }}</td>
                             <td>{{ examen.rut }}</td>
                             <td>{{ examen.examen }}</td>
                             <td>{{ examen.medico }}</td>
-                            
+                            <td><a href="{% url 'app_proyecto_medico:eliminar_examen' identificador=examen.identificador %}" class="btn btn-dark">Borrar</a></td>
                           </tr>
 
                           {% endfor %}

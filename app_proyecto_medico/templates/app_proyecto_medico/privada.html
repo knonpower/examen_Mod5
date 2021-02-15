@@ -44,8 +44,18 @@
                 <div class="col-md-9 ">
                     
                     {% for clave, valor in perfil.items %}
-                        <strong>{{clave}}</strong> 
-                        <p> {{ valor }} </p>
+                        {% if clave == 'nombre' %}
+                            <strong>{{clave}}</strong> 
+                            <p> {{ valor }} </p>
+                        {% endif %}
+                        {% if clave == 'rut' %}
+                            <strong>{{clave}}</strong> 
+                            <p> {{ valor }} </p>
+                        {% endif %}
+                        {% if clave == 'email' %}
+                            <strong>{{clave}}</strong> 
+                            <p> {{ valor }} </p>
+                        {% endif %}
                     {% endfor %}
                     
                 </div>
@@ -73,17 +83,12 @@
                                 <div class="wrap-reset">
                                     <div class="post-list">
                                         <div class="post-box">
-                                            <p>Paciente presenta hipertension y colesterol alto
-                                                El 11 de Noviembre se deriva al cardiologo Mario Adad para toma de examenes
-                                                El 22 de Noviembre se toma un electrocardiograma que aparece inconcluso
-                                                Se le agenda citas para diciembre y Enero para toma de mas examenes
-                                            </p>
-                                            <p>Glucosa del Paciente se muestra alta
-                                                El 11 de Noviembre se le deriva a la doctora Monserrat 
-                                                La Doctora Monserrat lo encuentra prediabetico el 22 de Noviembre
-                                                Se le da regimen al paciente 
-                                                Se le agendan visitas periodicas para Diciembre y Enero
-                                            </p>
+                                            {% for clave, valor in perfil.items %}
+                                                {% if clave == 'resumen' %}
+                                                    <strong>{{clave}}</strong> 
+                                                    <p> {{ valor }} </p>
+                                                {% endif %}
+                                            {% endfor %}
                                             <hr>
                                             <div class="post-box">
                                                 <h4>Reporte general</h4>

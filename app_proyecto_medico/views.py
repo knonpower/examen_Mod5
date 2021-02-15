@@ -18,6 +18,20 @@ def index(request):
     return render(request, 'app_proyecto_medico/index.html')
 
 def privada(request):
+    lista_hemograma = []
+    lista_orina = []
+    filename= "/app_proyecto_medico/data/examen.json"
+    with open(str(settings.BASE_DIR)+filename, 'r') as file:
+        lista_paciente = json.load(file) 
+        for elemento in lista_paciente.get('formulario')[-5:]:
+            hemograma = elemento.get('hemograma')
+            orina = elemento.get('orina')
+            lista_hemograma.append(hemograma)
+            lista_orina.append(orina)
+    print(lista_hemograma)
+    print(lista_orina)
+    grafico = {'hemograma':lista_hemograma, 'orina':lista_orina}
+
     if request.method == "GET":
         print("El request GET: ", request.GET)
         if 'id' in request.GET:
@@ -53,13 +67,41 @@ def privada(request):
                 print("Estos son los datos del paciente: ",paciente)
             
         context = {'lista_paciente': data['formulario']}
-        context.update(perfil)   
+        context.update(perfil)
+        context.update(grafico)   
         print("El context con update tiene:",context)     
         return render(request, 'app_proyecto_medico/privada.html', context)
 
 
 def graficos(request):
-    return render(request, 'app_proyecto_medico/graficos.html')
+    examen = dict()
+    lista_fecha = []
+    lista_hemograma = []
+    lista_orina = []
+    lista_colesterol = []
+    filename= '/app_proyecto_medico/data/examen.json'
+    with open(str(settings.BASE_DIR)+filename, 'r') as file:
+        lista_paciente = json.load(file) 
+        for elemento in lista_paciente['formulario']:
+            
+            hemograma = elemento.get('hemograma')
+            orina = elemento.get('orina')
+            fecha = elemento.get('fecha')
+            colesterol = elemento.get('colesterol')
+            lista_hemograma.append(hemograma)
+            lista_orina.append(orina)
+            lista_fecha.append(str(fecha))
+            lista_colesterol.append(colesterol)
+            print("Print elemento: ", elemento)
+    #print(lista_hemograma)
+    #print(lista_orina)
+    print(lista_fecha)
+    examen['hemograma'] = lista_hemograma
+    examen['orina'] = lista_orina
+    examen['colesterol'] = lista_colesterol
+    context = {'labels':lista_fecha, 'data':examen}
+    print("El context del grafico: ",context)
+    return render(request, 'app_proyecto_medico/graficos.html', context)
 
 def context_lista_examen():
     filename= "/app_proyecto_medico/data/examen.json"

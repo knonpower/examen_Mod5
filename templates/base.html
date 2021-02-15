@@ -18,37 +18,37 @@
 </head>
 
 <body>
-     <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="#" id="medicalr">MR</a>
 
         <!-- Navigation Bar Hamburger-->
         <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navigation"
-          aria-expanded="false"
-          aria-controls="navigation" 
-          aria-label="Toggle navigation">
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-expanded="false"
+            aria-controls="navigation" 
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- End Navigation Bar Hamburger -->
         <!-- Navigation Links -->
         <div class="collapse navbar-collapse" id="navigation">
-          <ul class="navbar-nav mr-auto">
-             
-          </ul>
-          <!-- Boton login  modal-->
-          <div class="text-center">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <!-- Boton login  modal-->
+            <div class="text-center">
             <a href="{% url 'app_proyecto_medico:index' %}" class="btn btn-danger border-dark font-weight-bold text-white my-2 my-sm-0">
-              Salir
+                Salir
             </a>
-          </div><!-- Boton login  modal-->
-          
+            </div><!-- Boton login  modal-->
+
         <!-- Navigation Links -->
-      </nav>
-      <!-- End Navigation Bar -->
+        </nav>
+        <!-- End Navigation Bar -->
 
     
     <div class="row" id="body-row">
@@ -108,6 +108,9 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
     <script src="{% static 'app_proyecto_medico/js/main.js' %}"></script>
+    {% block SCRIPT %}
+
+    {% endblock SCRIPT %}
 </body>
 
 </html>

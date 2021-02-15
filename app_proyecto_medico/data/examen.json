@@ -1,1 +1,83 @@
-{"ultimo_identificador": 9, "formulario": [{"nombre": "pelusa pelu peluson", "rut": "17567329", "examen": "prostata", "medico": "jose", "identificador": 6}, {"nombre": "shon valvoa", "rut": "17567329", "examen": "cabeza", "medico": "cabezon", "identificador": 7}, {"nombre": "alberto", "rut": "17567329", "examen": "orina", "medico": "cabezon", "identificador": 8}, {"nombre": "gilbert", "rut": "123546789", "examen": "ano", "medico": "cabezon", "identificador": 9}]}
+{
+    "ultimo_identificador": 11,
+    "formulario": [
+        {
+            "nombre": "pelusa pelu peluson",
+            "rut": "17567329",
+            "email": "pelusa@pelu.cl",
+            "examen": "prostata",
+            "hemograma": 140,
+            "orina": 200,
+            "colesterol": 150,
+            "fecha":"17-12-2020",
+            "medico": "jose",
+            "resumen": "El paciente se siente de manera perfecta, desea comer y la herida esta sanando de manera espectacular",
+            "identificador": 6
+        },
+        {
+            "nombre": "shon valvoa",
+            "rut": "17567329",
+            "email": "shon@valvoa.cl",
+            "examen": "cabeza",
+            "hemograma": 140,
+            "orina": 200,
+            "colesterol": 320,
+            "fecha":"03-05-2020",
+            "medico": "cabezon",
+            "resumen": "El paciente esta en estado de ebriedad y debe tomar un poco de cafe para poder examinarlo, por mientras me tomare un shoot de agua ardiente",
+            "identificador": 7
+        },
+        {
+            "nombre": "alberto",
+            "rut": "17567329",
+            "email": "alberto@lun.cl",
+            "examen": "orina",
+            "hemograma": 140,
+            "orina": 200,
+            "colesterol": 320,
+            "fecha":"05-08-2020",
+            "medico": "cabezon",
+            "resumen": "El paciente esta en estado de shock, no sabe su nombre y tampoco recuerda que sucedio",
+            "identificador": 8
+        },
+        {
+            "nombre": "gilbert",
+            "rut": "123546789",
+            "email": "gilbert@gil.cl",
+            "examen": "ano",
+            "hemograma": 140,
+            "orina": 200,
+            "colesterol": 50,
+            "fecha":"25-11-2020",
+            "medico": "cabezon",
+            "resumen": "El paciente tiene el femur roto, un pulmon perforado pero se encuentra estable",
+            "identificador": 9
+        },
+        {
+            "nombre": "palala",
+            "rut": "17567329",
+            "email": "palala@palito.cl",
+            "examen": "cabeza",
+            "hemograma": 140,
+            "orina": 200,
+            "colesterol": 10,
+            "fecha":"29-09-2020",
+            "medico": "palma cayosa",
+            "resumen": "El paciente es un mitomano indica que se trago una caja llena de arfileres que cayo en su sopa",
+            "identificador": 10
+        },
+        {
+            "nombre": "andres ojeda capella capella",
+            "rut": "162305190",
+            "email": "andres@capella.cl",
+            "hemograma": "456",
+            "orina": "129",
+            "colesterol": 60,
+            "fecha":"03-01-2020",
+            "examen": "prostata",
+            "medico": "juan andres calderon",
+            "resumen": "el paciente esta muy grabe debe acudir a un centro asistencial de inmediato para que le den un dulce",
+            "identificador": 11
+        }
+    ]
+}
