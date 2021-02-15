@@ -1,18 +1,20 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% load static %} 
+{% load static %}
 
 {% block login %}
-
-        <h1>Acceso</h1>
-        <form action="" method="POST" novalidate>
-            {% csrf_token %}
-            <table>
-                {{formulario.as_table}}
-            </table>
-            <input type="hidden" name="elemento" value="formulario">
-            <input type="submit" value="Ingresar">
-            <a href="{% url 'app_proyecto_medico:registro' %}">Registrate</a>
-
+<div class="contenido">
+    <hr>
+    <hr>
+    <h1>Acceso</h1>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="hidden" name="elemento" value="formulario">
+        <input type="submit" value="Ingresar">
+        <a href="{% url 'app_proyecto_medico:registro' %}">Registrate</a>
+</div>
 
 {% endblock %}

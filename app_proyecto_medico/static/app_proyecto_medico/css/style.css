@@ -1,58 +1,58 @@
-    /*
-Awakelab
-Full Stack Python 2020
-*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.6fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.4fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "navbar navbar navbar navbar navbar"
+      "sidbar contenido contenido contenido contenido"
+      "sidbar contenido contenido contenido contenido"
+      "sidbar contenido contenido contenido contenido"
+      "sidbar contenido contenido contenido contenido";
+  }
+  
+  .navbar { grid-area: navbar; }
+  
+  .sidbar { grid-area: sidbar; }
+  
+  .contenido { grid-area: contenido; }
+  
 
-    .bg-principal {
-        padding: 100px;
-    }
-
-    .navbar {
-        font-weight: bold;
-        font-size: 19px;
-    }
-
-    .navbar-dark {
-        background-color: rgb(0, 0, 0);
-        margin: 1px;
-        padding: 8px;
-    }
-
-    .bg-principal {
-        background-image: url('../img/auditoria.jpg');
-        background-size: 200px;
-    }
-
-    .jumbotron {
-        color: white;
-        background: rgb(0, 0, 0);
-        /* Para navegadores antiguos */
-        background: rgba(0, 0, 0, 0.5);
-    }
-
-    .media {
-        margin: 20px 5% 50px 10%;
-    }
-
-    footer {
-        font-family: 'Bebas Neue';
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .grid-privada {
-        display: grid;
-        grid-template-columns: 0.3fr 1.7fr;
-        grid-template-rows: 0.2fr 1.8fr;
-        gap: 60px 0px;
-        grid-template-areas: ". ." "sidebar contenido";
-    }
-
-    .sidebar {
-        grid-area: sidebar;
-    }
-
-    .contenido {
-        grid-area: contenido;
-    }
-
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

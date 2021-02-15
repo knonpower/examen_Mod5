@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
 
-{% block crear_paciente %}
 
+{% block crear_ver_lista %}
+<li class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+        aria-expanded="false">Datos Paciente<span class="caret"></span></a>
+    <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item scroll-trigger" href="{% url 'app_proyecto_medico:lista_paciente' %}">Lista
+            Pacientes</a>
+        <a class="dropdown-item scroll-trigger" href="{% url 'app_proyecto_medico:crear_paciente' %}">Crear Paciente</a>
+    </div>
+</li>
+{% endblock %}
+
+{% block crear_paciente %}
+<hr>
+<hr>
+<hr>
+<hr>
 <h1>Pagina Crear Pacientes</h1>
+
 <form action="" method="POST" novalidate>
     {% csrf_token %}
     <table>
@@ -22,13 +39,18 @@
         {% for paciente in lista_paciente %}
         <div class="col-md-6 col-lg-3">
             <div class="card">
-                <h3 class="card-header">paciente N° {{formulario.identificador}}</h3>
+                <h3 class="card-header">Ficha Paciente {{formulario.identificador}}</h3>
                 <div class="card-body">
-                    <h4 class="card-title">{{paciente.nombre}}</h4>
-                    <p class="card-text">{{paciente.sexo}}</p>
-                    <p class="card-text">{{paciente.edad}}</p>
-                    <p class="card-text">{{paciente.fecha_nacimiento}}</p>
+                    <p class="card-title">Nombre :{{paciente.nombre}}</p>
+                    <p class="card-text">Sexo :{{paciente.sexo}}</p>
+                    <p class="card-text">Edad :{{paciente.edad}}</p>
+                    <p class="card-text">Fecha de Nacimiento :{{paciente.fecha_nacimiento}}</p>
                 </div>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
             </div>
         </div>
         {% endfor %}

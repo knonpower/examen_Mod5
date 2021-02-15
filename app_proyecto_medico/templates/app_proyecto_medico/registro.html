@@ -1,17 +1,19 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block registro %}
-
-        <h1>Registrate</h1>
-        <form action="" method="POST" novalidate>
-            {% csrf_token %}
-            <table>
-                {{formulario.as_table}}
-            </table>
-            <input type="hidden" name="elemento" value="formulario">
-            <input type="submit" value="registrar">
-
+<div class="contenido">
+    <hr>
+    <hr>
+    <h1>Registrate</h1>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="hidden" name="elemento" value="formulario">
+        <input type="submit" value="registrar">
+</div>
 
 {% endblock %}

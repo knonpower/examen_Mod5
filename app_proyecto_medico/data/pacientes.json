@@ -1,1 +1,19 @@
-{"ultimo_identificador": 8, "paciente": []}
+{
+    "ultimo_identificador": 10,
+    "paciente": [
+        {
+            "nombre": "jhonn",
+            "sexo": "Macho",
+            "edad": 30,
+            "fecha_nacimiento": "1968-07-09",
+            "identificador": 9
+        },
+        {
+            "nombre": "annyta",
+            "sexo": "femenino",
+            "edad": 45,
+            "fecha_nacimiento": "1999-02-05",
+            "identificador": 10
+        }
+    ]
+}

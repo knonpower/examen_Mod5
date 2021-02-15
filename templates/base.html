@@ -5,20 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jhonn</title>
     <!-- Loading Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
     <link href="{% static 'app_proyecto_medico/css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'app_proyecto_medico/css/sidenav.css' %}" rel="stylesheet">
 </head>
 
 <tbody>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">Proyecto-MED</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
@@ -31,11 +31,13 @@
                 <li class="nav-item">
                     <a class="nav-link scroll-trigger" href="{% url 'app_proyecto_medico:login' %}">Acceder</a>
                 </li>
+                {% block eliminar_paciente %}
+                {% endblock %}
                 {% block crear_ver_lista %}
                 {% endblock %}
             </ul>
         </div>
-      </nav>
+    </nav>
 </tbody>
 
 <body>
@@ -45,11 +47,13 @@
     {% block index %}{% endblock %}
     {% block privada %}{% endblock %}
     {% block examenes %}{% endblock %}
-    {% block graficos %}{% endblock %}
     {% block agendar %}{% endblock %}
     {% block crear_paciente %}{% endblock %}
     {% block lista_paciente %}{% endblock %}
-    {% block eliminar_paciente %}{% endblock %}
+    
+    {% block graficos %}{% endblock %}
+    {% block contenidos %}{% endblock %}
+    {% block eliminar_examen %}{% endblock %}
 
 </body>
 
